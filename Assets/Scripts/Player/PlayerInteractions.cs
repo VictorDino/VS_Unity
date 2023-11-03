@@ -8,8 +8,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ammo"))
         {
-            GameManager.Instance.Ammo += other.gameObject.GetComponent<AmmoBox>().ammo;
-            Destroy(other.gameObject);
+            
         }
     }
 }
