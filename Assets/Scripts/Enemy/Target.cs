@@ -6,12 +6,18 @@ public class Target : MonoBehaviour
 {
     public float health = 30f;
 
+    public ParticleSystem destroyEffect;
+
+    public AudioClip explosion;
     public void takeDamage(float amount)
     {
         health -= amount;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            destroyEffect.Play();
+            AudioSource.PlayClipAtPoint(explosion, transform.position);
+            Destroy(gameObject, 0.3f);
+            
         }
     }
 }

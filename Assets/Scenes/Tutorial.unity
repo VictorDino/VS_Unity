@@ -679,6 +679,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
+  destroyEffect: {fileID: 6119149919813556692, guid: b3ab31cdc850f8447815e4c7553bfe10, type: 3}
+  explosion: {fileID: 8300000, guid: 20b725ed53405f44d8f4fa2dded1435a, type: 3}
 --- !u!1 &1208750144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,24 +1022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551150401}
   m_CullTransparentMesh: 1
---- !u!1 &1677374821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4459680335913089909, guid: 87e2f06af80f18b4abfa35499b11da29, type: 3}
-  m_PrefabInstance: {fileID: 8139346037939838520}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1677374822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677374821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e0b327b4d7f1824f8af2b5698cd7619, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: 10
 --- !u!1 &1736001333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,63 +1206,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776750434}
   m_CullTransparentMesh: 1
---- !u!1001 &1818868570
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.149188
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.092892
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985249174197785402, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828759485636451199, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
-      propertyPath: m_Name
-      value: EnemyRobot (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 277c5c11182e76343a645a7431f8c84f, type: 3}
 --- !u!1 &1862016271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1294,7 @@ GameObject:
   - component: {fileID: 2033539622}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1493,7 +1420,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033539616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 658caaaa2242c2344834bd1552303e7a, type: 3}
   m_Name: 
@@ -2063,17 +1990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox
       objectReference: {fileID: 0}
-    - target: {fileID: 4459680335913089909, guid: 87e2f06af80f18b4abfa35499b11da29, type: 3}
-      propertyPath: m_TagString
-      value: Ammo
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4459680335913089909, guid: 87e2f06af80f18b4abfa35499b11da29, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1677374822}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87e2f06af80f18b4abfa35499b11da29, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2089,4 +2009,3 @@ SceneRoots:
   - {fileID: 1115695501}
   - {fileID: 1736001337}
   - {fileID: 4455288129917247301}
-  - {fileID: 1818868570}
