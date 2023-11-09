@@ -7,12 +7,17 @@ public class WeaponSwitch : MonoBehaviour
     public GameObject[] weapons;
 
     public int selectedWeapon = 0;
+
+    public PlayerScore score;
+
+    public int scoreToUnlock = 20;
     void Start()
     {
         selectedWeapon = 0;
+        ;
     }
 
-    
+
     void Update()
     {
         int previousWeapon = selectedWeapon;
@@ -25,8 +30,9 @@ public class WeaponSwitch : MonoBehaviour
                 selectedWeapon = 0;
             }
         }
+        
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && score.score == scoreToUnlock)
         {
             if (selectedWeapon <= 0)
             {
@@ -34,7 +40,7 @@ public class WeaponSwitch : MonoBehaviour
             }
         }
 
-        if(previousWeapon != selectedWeapon)
+        if (previousWeapon != selectedWeapon)
         {
             SelectWeapon();
         }
@@ -43,11 +49,11 @@ public class WeaponSwitch : MonoBehaviour
     void SelectWeapon()
     {
         int i = 0;
-        foreach (Transform weapon in transform) 
+        foreach (Transform weapon in transform)
         {
-            if(weapon.gameObject.layer == LayerMask.NameToLayer("Weapon"))
+            if (weapon.gameObject.layer == LayerMask.NameToLayer("Weapon"))
             {
-                if(i == selectedWeapon)
+                if (i == selectedWeapon)
                 {
                     weapon.gameObject.SetActive(true);
                 }

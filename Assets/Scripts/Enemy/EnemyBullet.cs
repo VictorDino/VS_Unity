@@ -49,12 +49,10 @@ public class EnemyBullet : MonoBehaviour
                 }
 
                 Destroy(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            }  
+            
         }
+        Destroy(gameObject,1f) ;
         Debug.DrawRay(transform.position, rayDirection * rayDistance, Color.red);
     }
 }

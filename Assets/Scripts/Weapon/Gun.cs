@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -28,12 +29,15 @@ public class Gun : MonoBehaviour
     public ParticleSystem shootEffect;
     public GameObject impactEffect;
 
+    public Text ammoText;
+
 
     private void Start()
     {
         currentAmmo = maxAmmo;
         audioSource = GetComponent<AudioSource>();
         audioSource2 = GetComponent<AudioSource>();
+        
     }
 
     private void OnEnable()
@@ -59,6 +63,7 @@ public class Gun : MonoBehaviour
             Shoot();
             
         }
+        ammoText.text = currentAmmo.ToString();
     }
 
     private void Shoot()

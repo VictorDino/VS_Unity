@@ -28,6 +28,8 @@ public class EnemyShoot : MonoBehaviour
     public Transform target;
     public GameObject alarmImage;
     public float rotationSpeed = 10f;
+    
+
 
 
 
@@ -59,6 +61,7 @@ public class EnemyShoot : MonoBehaviour
                 {
                     currentState = EnemyState.Attacking;
                     alarmImage.SetActive(false);
+                    
                 }
                 else if (!PlayerInDetectionRange())
                 {
@@ -107,7 +110,7 @@ public class EnemyShoot : MonoBehaviour
 
          // Haz que el enemigo mire en la dirección del movimiento.
          transform.LookAt(transform.position + patrolDirection);
-       
+
     }
 
     void Alarm()

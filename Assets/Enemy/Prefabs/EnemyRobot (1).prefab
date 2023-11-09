@@ -1241,6 +1241,7 @@ MonoBehaviour:
   destroyEffect: {fileID: 271181513184577550}
   explosion: {fileID: 8300000, guid: 20b725ed53405f44d8f4fa2dded1435a, type: 3}
   healthBar: {fileID: 5144303560677270045}
+  pointsOnDestroy: 10
 --- !u!114 &6454562770796645448
 MonoBehaviour:
   m_ObjectHideFlags: 0

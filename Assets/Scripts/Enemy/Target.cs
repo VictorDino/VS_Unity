@@ -11,6 +11,8 @@ public class Target : MonoBehaviour
     public AudioClip explosion;
     public Slider healthBar;
 
+    public int pointsOnDestroy = 10;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -23,6 +25,7 @@ public class Target : MonoBehaviour
         {
             destroyEffect.Play();
             AudioSource.PlayClipAtPoint(explosion, transform.position);
+            PlayerScore.instance.IncreaseScore(pointsOnDestroy);
             Destroy(gameObject, 0.3f);
         }
         UpdateHealthBar();
