@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3244573057703004255}
   - component: {fileID: 960492254989794484}
   - component: {fileID: 8269919987899244069}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AssaultRiflePolyart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +111,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   shootEffect: {fileID: 6345263632447938218}
   impactEffect: {fileID: 8682513327320119782, guid: fad053657dde12a4199bbabc7e7ae049, type: 3}
+  ammoText: {fileID: 0}
 --- !u!114 &960492254989794484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +232,10 @@ PrefabInstance:
     - target: {fileID: 5213041040443847630, guid: 8f46aa66473fe9740a8a7fe7fb327342, type: 3}
       propertyPath: m_Name
       value: ShootAREffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213041040443847630, guid: 8f46aa66473fe9740a8a7fe7fb327342, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5985503437882638980, guid: 8f46aa66473fe9740a8a7fe7fb327342, type: 3}
       propertyPath: m_LocalPosition.x

@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 1842111084258931620}
   - component: {fileID: 8522963097164553564}
   - component: {fileID: 8657080997315383737}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PistolPolyart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5013,6 +5013,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   shootEffect: {fileID: 445104210655900971}
   impactEffect: {fileID: 8682513327320119782, guid: fad053657dde12a4199bbabc7e7ae049, type: 3}
+  ammoText: {fileID: 0}
 --- !u!82 &8522963097164553564
 AudioSource:
   m_ObjectHideFlags: 0
