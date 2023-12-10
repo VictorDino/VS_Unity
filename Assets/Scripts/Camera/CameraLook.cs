@@ -9,7 +9,7 @@ public class CameraLook : MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0;
-    void Start()
+    private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }

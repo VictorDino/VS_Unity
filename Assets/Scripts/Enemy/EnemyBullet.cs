@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -52,7 +54,20 @@ public class EnemyBullet : MonoBehaviour
             }  
             
         }
+
+        
+
         Destroy(gameObject,1f) ;
         Debug.DrawRay(transform.position, rayDirection * rayDistance, Color.red);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Destruir la bala si colisiona con un objeto que no sea el jugador o el enemigo
+        if (!other.CompareTag("Player") && !other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -32,7 +32,7 @@ public class WeaponSwitch : MonoBehaviour
         }
         
 
-        if (Input.GetKey(KeyCode.E) && score.score == scoreToUnlock)
+        if (Input.GetKey(KeyCode.E) && score.score >= scoreToUnlock)
         {
             if (selectedWeapon <= 0)
             {

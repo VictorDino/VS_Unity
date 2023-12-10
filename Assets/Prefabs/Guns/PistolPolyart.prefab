@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3017463735687395347}
   - component: {fileID: 445104210655900971}
   - component: {fileID: 8355382741174141476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 1842111084258931620}
   - component: {fileID: 8522963097164553564}
   - component: {fileID: 8657080997315383737}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PistolPolyart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
