@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -22,18 +23,22 @@ public class PlayerHealth : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
-
-             Debug.Log("El jugador ha muerto.");
-               
+                Debug.Log("El jugador ha muerto.");
+                SceneManager.LoadScene("Level");
             }
         
         UpdateHealthText();
     }
 
-    void UpdateHealthText()
+    public void UpdateHealthText()
     {
         
         healthText.text = currentHealth.ToString();
+    }
+
+    public void RestoreHealthToMax()
+    {
+        currentHealth = maxHealth;
     }
 }
 

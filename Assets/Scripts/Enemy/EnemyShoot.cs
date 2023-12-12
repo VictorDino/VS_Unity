@@ -19,10 +19,11 @@ public class EnemyShoot : MonoBehaviour
     [Header("Ranges")]
     public float detectionRange = 15f;
     public float attackRange = 10f;
-    public float stoppingDistance = 5.0f; // Distancia para mantener una distancia al jugador
+    public float stoppingDistance = 5.0f;
 
     [Header("States")]
-    public float patrolSpeed = 5f;
+    public float patrolSpeed = 3f;
+    public float trackSpeed = 5f;
     public Transform[] patrolPoints;
     private int currentPatrolPointIndex = 0;
 
@@ -63,19 +64,15 @@ public class EnemyShoot : MonoBehaviour
 
     void Patrol()
     {
-        // Implementa la lógica de patrullaje
         if (Vector3.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position) < 0.2f)
         {
             currentPatrolPointIndex = (currentPatrolPointIndex + 1) % patrolPoints.Length;
         }
 
-        // Calcula la dirección hacia el siguiente punto de patrulla.
         Vector3 patrolDirection = (patrolPoints[currentPatrolPointIndex].position - transform.position).normalized;
 
-        // Mueve al enemigo hacia el siguiente punto de patrulla.
         transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPatrolPointIndex].position, patrolSpeed * Time.deltaTime);
 
-        // Haz que el enemigo mire en la dirección del movimiento.
         transform.LookAt(transform.position + patrolDirection);
     }
 
@@ -87,8 +84,7 @@ public class EnemyShoot : MonoBehaviour
 
         if (distanceToPlayer > stoppingDistance)
         {
-            // Mueve al enemigo hacia el jugador solo si está más lejos que la distancia de parada
-            transform.Translate(Vector3.forward * patrolSpeed * Time.deltaTime);
+            transform.Translate(Vector3.forward * trackSpeed * Time.deltaTime);
         }
 
         EnemyLook();
@@ -124,8 +120,9 @@ public class EnemyShoot : MonoBehaviour
 
     private void ShootFromPoint(Transform firePoint)
     {
-        GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        newProjectile.GetComponent<Rigidbody>().velocity = firePoint.forward * bulletSpeed;
+        Vector3 direction = player.position - firePoint.position;
+        GameObject newBullet = Instantiate(projectile, firePoint.position, Quaternion.LookRotation(direction));
+        newBullet.GetComponent<Rigidbody>().velocity = direction.normalized * 10f;
         AudioSource.PlayClipAtPoint(shoot, transform.position);
     }
 

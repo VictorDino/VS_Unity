@@ -9,6 +9,16 @@ public class PauseManager : MonoBehaviour
 
     private bool isGamePaused = false;
 
+    private Gun gunScript;
+
+    public GameObject gun;
+
+
+    private void Start()
+    {
+        gunScript = gun.GetComponent<Gun>();
+    }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -26,12 +36,14 @@ public class PauseManager : MonoBehaviour
             pausePanel.SetActive(true);
             pausePanel.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            gunScript.enabled = false;
         }
         else
         {
             Time.timeScale = 1;
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            gunScript.enabled = true;
         }
     }
 
@@ -40,6 +52,7 @@ public class PauseManager : MonoBehaviour
         pausePanel.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        gunScript.enabled = true;
     }
 
     public void QuitGame()

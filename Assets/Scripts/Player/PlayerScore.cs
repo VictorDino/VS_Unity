@@ -5,7 +5,7 @@ public class PlayerScore : MonoBehaviour
 {
     public static PlayerScore instance;
     public int score = 0;
-    public Text scoreText; // Asigna el objeto de texto desde el inspector
+    public Text scoreText;
 
     private void Awake()
     {
@@ -24,14 +24,14 @@ public class PlayerScore : MonoBehaviour
         WeaponSwitch weaponSwitch = GetComponent<WeaponSwitch>();
     }
 
-    // Incrementa la puntuación y actualiza la UI de puntuación
+    
     public void IncreaseScore(int points)
     {
         score += points;
         UpdateScoreUI();
     }
 
-    // Actualiza el elemento de UI con la puntuación actual
+    
     private void UpdateScoreUI()
     {
         scoreText.text = score.ToString();

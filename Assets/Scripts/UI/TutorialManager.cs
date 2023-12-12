@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    public GameObject messageUI; // Objeto de interfaz de usuario (UI) que mostrará el mensaje
-    public float messageDuration = 10f; // Duración del mensaje en pantalla
+    public GameObject messageUI; 
+    public float messageDuration = 10f; 
     public GameObject player;
     public GameObject gun;
 
     private bool showMessage = false;
-    private PlayerMovement playerMovement; // Script de movimiento del jugador
+    private PlayerMovement playerMovement; 
     private Gun gunScript;
     private void Start()
     {
-        playerMovement = player.GetComponent<PlayerMovement>(); // Obtener el script de movimiento del jugador
+        playerMovement = player.GetComponent<PlayerMovement>();
         gunScript = gun.GetComponent<Gun>();
     }
 
@@ -24,7 +24,7 @@ public class TutorialManager : MonoBehaviour
         {
             showMessage = true;
             messageUI.SetActive(true);
-            playerMovement.enabled = false; // Deshabilitar el script de movimiento del jugador
+            playerMovement.enabled = false;
             gunScript.enabled = false;
             Invoke("HideMessage", messageDuration);
             
@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour
     {
         showMessage = false;
         messageUI.SetActive(false);
-        playerMovement.enabled = true; // Habilitar nuevamente el movimiento del jugador
+        playerMovement.enabled = true;
         gunScript.enabled = true;
         Destroy(gameObject);
     }

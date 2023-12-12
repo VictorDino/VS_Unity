@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager instance; // Singleton para acceder desde otros scripts
+    public static EnemyManager instance;
 
-    private List<GameObject> enemies = new List<GameObject>(); // Lista de enemigos en la escena
+    private List<GameObject> enemies = new List<GameObject>();
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject); // Para mantener el manager entre escenas
+        DontDestroyOnLoad(gameObject);
     }
 
     public void RegisterEnemy(GameObject enemy)
@@ -27,16 +27,15 @@ public class EnemyManager : MonoBehaviour
     {
         enemies.Remove(enemy);
 
-        // Verificar si no hay más enemigos
+        
         if (enemies.Count == 0)
         {
-            // Ejemplo: Cambiar a una nueva escena
+            
             SceneManager.LoadScene("MainMenu");
             Cursor.lockState = CursorLockMode.None;
         }
     }
 
-    // Método para llamar desde otros scripts cuando un enemigo es destruido
     public void OnEnemyDeath(GameObject enemy)
     {
         UnregisterEnemy(enemy);
