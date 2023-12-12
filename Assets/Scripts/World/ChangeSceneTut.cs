@@ -7,6 +7,6 @@ public class ChangeSceneTut : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level");
     }
 }

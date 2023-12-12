@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pausePanel;
-    public GameObject optionsPanel;
 
     private bool isGamePaused = false;
 
@@ -36,15 +35,11 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void OpenOptionsPanel()
-    {
-        optionsPanel.SetActive(true);
-    }
-
     public void ReturnToMain()
     {
-        optionsPanel.SetActive(false);
-        pausePanel.SetActive(true);
+        pausePanel.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void QuitGame()

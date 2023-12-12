@@ -57,7 +57,7 @@ public class EnemyBullet : MonoBehaviour
 
         
 
-        Destroy(gameObject,1f) ;
+        Destroy(gameObject,2f) ;
         Debug.DrawRay(transform.position, rayDirection * rayDistance, Color.red);
     }
 
